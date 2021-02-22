@@ -1,9 +1,9 @@
+@MyAccount
 Feature: Home Page Links
 
   Background:
     Given user navigates to url to login
-    And user is already sign up
-
+    And user log in
 
   Scenario: Display my Account Information page
     Given user is in my account page

@@ -1,3 +1,4 @@
+@SignUp
 Feature: Sign from My Account Menu
   Background:
     Given user navigates to url to sign up

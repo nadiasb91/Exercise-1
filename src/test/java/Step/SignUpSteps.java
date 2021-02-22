@@ -1,6 +1,7 @@
 package Step;
 
 
+import io.cucumber.core.gherkin.Feature;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import Pages.SignUpPage;
 import Helper.Helper;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -24,18 +26,18 @@ public class SignUpSteps {
     protected SignUpPage signUpPage;
     SoftAssert softAssert;
 
-    @Before
+    @Before("@SignUp")
     public void setUp() {
-         softAssert= new SoftAssert();
+        softAssert = new SoftAssert();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        signUpPage = new SignUpPage(driver);
 
     }
 
     @Given("user navigates to url to sign up")
     public void user_navigates_to_url_to_sign_up() {
-      //  signUpPage = new SignUpPage(driver);
+
+        signUpPage = new SignUpPage(driver);
         driver.get(new Helper().OPENCART_URL);
     }
 
@@ -130,8 +132,8 @@ public class SignUpSteps {
     }
 
     @Then("error message detailing that the email is invalid because @ is missing")
-    public void error_message_detailing_that_the_email_is_invalid_because_at_is_missing(){
-        Assert.assertEquals(signUpPage.errorMessageEmail(),"E-Mail Address does not appear to be valid!");
+    public void error_message_detailing_that_the_email_is_invalid_because_at_is_missing() {
+        Assert.assertEquals(signUpPage.errorMessageEmail(), "E-Mail Address does not appear to be valid!");
     }
 
 
@@ -165,7 +167,7 @@ public class SignUpSteps {
         Assert.assertEquals(signUpPage.errorMessageConfirmPassword(), "Password confirmation does not match password!");
     }
 
-    @After
+    @After("@SignUp")
     public void tearDown() {
         driver.close();
     }
