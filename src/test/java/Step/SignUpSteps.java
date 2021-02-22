@@ -15,7 +15,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import Pages.SignUpPage;
 import Helper.Helper;
-import org.testng.annotations.BeforeTest;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
