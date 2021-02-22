@@ -27,7 +27,7 @@ public class SignUpSteps {
     SoftAssert softAssert;
 
     @Before
-    public void setUp(){
+    public void setUp() {
          softAssert= new SoftAssert();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -168,8 +168,8 @@ public class SignUpSteps {
     }
 
     @After
-    public void tearDown() throws Exception {
-     //   driver.close();
+    public void tearDown() {
+        driver.close();
     }
 
 
