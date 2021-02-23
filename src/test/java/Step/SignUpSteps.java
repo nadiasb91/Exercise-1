@@ -31,13 +31,11 @@ public class SignUpSteps {
         softAssert = new SoftAssert();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
+        signUpPage = new SignUpPage(driver);
     }
 
     @Given("user navigates to url to sign up")
     public void user_navigates_to_url_to_sign_up() {
-
-        signUpPage = new SignUpPage(driver);
         driver.get(new Helper().OPENCART_URL);
     }
 
@@ -65,7 +63,12 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysToForm(list.get(0), list.get(1), email, list.get(3), list.get(4), list.get(5));
+        signUpPage.sendKeysFirstName(list.get(0));
+        signUpPage.sendKeysLastName(list.get(1));
+        signUpPage.sendKeysEmail(email);
+        signUpPage.sendKeysPhone(list.get(3));
+        signUpPage.sendKeysPassword(list.get(4));
+        signUpPage.sendKeysPasswordConfirm(list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -85,7 +88,12 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysToForm("", "", "", "", "", "");
+        signUpPage.sendKeysFirstName("");
+        signUpPage.sendKeysLastName("");
+        signUpPage.sendKeysEmail("");
+        signUpPage.sendKeysPhone("");
+        signUpPage.sendKeysPassword("");
+        signUpPage.sendKeysPasswordConfirm("");
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -111,7 +119,12 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysToForm(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5));
+        signUpPage.sendKeysFirstName(list.get(0));
+        signUpPage.sendKeysLastName(list.get(1));
+        signUpPage.sendKeysEmail(list.get(2));
+        signUpPage.sendKeysPhone(list.get(3));
+        signUpPage.sendKeysPassword(list.get(4));
+        signUpPage.sendKeysPasswordConfirm(list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -126,7 +139,12 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysToForm(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5));
+        signUpPage.sendKeysFirstName(list.get(0));
+        signUpPage.sendKeysLastName(list.get(1));
+        signUpPage.sendKeysEmail(list.get(2));
+        signUpPage.sendKeysPhone(list.get(3));
+        signUpPage.sendKeysPassword(list.get(4));
+        signUpPage.sendKeysPasswordConfirm(list.get(5));
         signUpPage.clickPolicyCheckBox();
         signUpPage.setTypeForEmail();
     }
@@ -143,7 +161,12 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysToForm(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5));
+        signUpPage.sendKeysFirstName(list.get(0));
+        signUpPage.sendKeysLastName(list.get(1));
+        signUpPage.sendKeysEmail(list.get(2));
+        signUpPage.sendKeysPhone(list.get(3));
+        signUpPage.sendKeysPassword(list.get(4));
+        signUpPage.sendKeysPasswordConfirm(list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -158,7 +181,12 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysToForm(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5));
+        signUpPage.sendKeysFirstName(list.get(0));
+        signUpPage.sendKeysLastName(list.get(1));
+        signUpPage.sendKeysEmail(list.get(2));
+        signUpPage.sendKeysPhone(list.get(3));
+        signUpPage.sendKeysPassword(list.get(4));
+        signUpPage.sendKeysPasswordConfirm(list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 

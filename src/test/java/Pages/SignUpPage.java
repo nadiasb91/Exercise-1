@@ -69,20 +69,29 @@ public class SignUpPage {
     }
 
 
-    public void sendKeysToForm(String firstname, String lastname, String email, String phone, String password, String passwordConfirm) {
+    public void sendKeysFirstName( String firstname){
         firstNameInput.sendKeys(firstname);
+    }
+
+    public void sendKeysLastName(String lastname){
         lastNameInput.sendKeys(lastname);
+    }
+
+    public void sendKeysEmail(String email){
         emailInput.sendKeys(email);
+    }
+
+    public void sendKeysPhone(String phone){
         phoneInput.sendKeys(phone);
+    }
+    public void sendKeysPassword(String password){
         passwordInput.sendKeys(password);
+    }
+
+    public void sendKeysPasswordConfirm(String passwordConfirm){
         confirmPasswordInput.sendKeys(passwordConfirm);
-
     }
 
-    public void sendKeysFirstNameField(String firstname) {
-
-        firstNameInput.sendKeys(firstname);
-    }
 
     public void clickPolicyCheckBox() {
         policyCheckBox.click();
@@ -139,19 +148,7 @@ public class SignUpPage {
         return errorMessageConfirmPassword.getText();
     }
 
-    public void emailInput(String email) {
-        // emailInput.clear();
-        emailInput.sendKeys(email);
-    }
 
-    public void passwordInput(String password) {
-        // passwordInput.clear();
-        passwordInput.sendKeys(password);
-    }
-
-    public void phoneInput(String phone) {
-        phoneInput.sendKeys(phone);
-    }
 
     public void clearFirstNameInput() {
         firstNameInput.clear();
