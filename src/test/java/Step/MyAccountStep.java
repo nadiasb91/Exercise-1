@@ -3,6 +3,7 @@ package Step;
 import Helper.Helper;
 import Pages.MyAccountPage;
 import Pages.SignUpPage;
+import com.google.common.base.Verify;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -47,7 +48,7 @@ public class MyAccountStep {
     public void user_is_already_sign_up() {
         signUpPage.clickMyAccount();
         signUpPage.clickLoginMenu();
-        signUpPage.sendKeysEmail("lola@gmail.com");
+        signUpPage.sendKeysEmail("lola1@gmail.com");
         signUpPage.sendKeysPassword("1234");
         signUpPage.clickLoginButton();
     }
@@ -257,21 +258,22 @@ public class MyAccountStep {
     }
 
     @Then("is display newsletter subscription page")
-    public void is_display_newsletter_subscription_page(){
-        Assert.assertEquals(driver.getTitle(),"Newsletter Subscription");
+    public void is_display_newsletter_subscription_page() {
+        Assert.assertEquals(driver.getTitle(), "Newsletter Subscription");
     }
 
     @When("user click on option yes")
-    public void user_click_on_option_yes(){
+    public void user_click_on_option_yes() {
         myAccountPage.clickRadioButtonYes();
     }
 
     @Then("message newsletter subscription updated successfully")
-    public void message_newsletter_subscription_updated_successfully(){
+    public void message_newsletter_subscription_updated_successfully() {
         Assert.assertEquals(myAccountPage.successMessage(), "Success: Your newsletter subscription has been successfully updated!");
     }
+
     @When("user click on option no")
-    public void user_click_on_option_no(){
+    public void user_click_on_option_no() {
         myAccountPage.clickRadioButtonNo();
     }
 

@@ -15,7 +15,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import Pages.SignUpPage;
 import Helper.Helper;
-import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -58,17 +57,12 @@ public class SignUpSteps {
 
     @When("user fill out the sign up from with valid data")
     public void user_fill_out_the_sign_up_from_with_valid_data(DataTable table) {
-        List<String> list = table.asList();
+       List<String> list = table.asList();
         String email = "lola" + Math.random() + "@gmail.com";
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysFirstName(list.get(0));
-        signUpPage.sendKeysLastName(list.get(1));
-        signUpPage.sendKeysEmail(email);
-        signUpPage.sendKeysPhone(list.get(3));
-        signUpPage.sendKeysPassword(list.get(4));
-        signUpPage.sendKeysPasswordConfirm(list.get(5));
+        signUpPage.fillForm(list.get(0),list.get(1),email,list.get(3),list.get(4),list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -88,12 +82,7 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysFirstName("");
-        signUpPage.sendKeysLastName("");
-        signUpPage.sendKeysEmail("");
-        signUpPage.sendKeysPhone("");
-        signUpPage.sendKeysPassword("");
-        signUpPage.sendKeysPasswordConfirm("");
+        signUpPage.fillForm("","","","","","");
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -119,12 +108,7 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysFirstName(list.get(0));
-        signUpPage.sendKeysLastName(list.get(1));
-        signUpPage.sendKeysEmail(list.get(2));
-        signUpPage.sendKeysPhone(list.get(3));
-        signUpPage.sendKeysPassword(list.get(4));
-        signUpPage.sendKeysPasswordConfirm(list.get(5));
+        signUpPage.fillForm(list.get(0),list.get(1),list.get(2),list.get(3),list.get(4),list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -139,12 +123,7 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysFirstName(list.get(0));
-        signUpPage.sendKeysLastName(list.get(1));
-        signUpPage.sendKeysEmail(list.get(2));
-        signUpPage.sendKeysPhone(list.get(3));
-        signUpPage.sendKeysPassword(list.get(4));
-        signUpPage.sendKeysPasswordConfirm(list.get(5));
+        signUpPage.fillForm(list.get(0),list.get(1),list.get(2),list.get(3),list.get(4),list.get(5));
         signUpPage.clickPolicyCheckBox();
         signUpPage.setTypeForEmail();
     }
@@ -161,12 +140,7 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysFirstName(list.get(0));
-        signUpPage.sendKeysLastName(list.get(1));
-        signUpPage.sendKeysEmail(list.get(2));
-        signUpPage.sendKeysPhone(list.get(3));
-        signUpPage.sendKeysPassword(list.get(4));
-        signUpPage.sendKeysPasswordConfirm(list.get(5));
+        signUpPage.fillForm(list.get(0),list.get(1),list.get(2),list.get(3),list.get(4),list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 
@@ -181,12 +155,7 @@ public class SignUpSteps {
         signUpPage.clickMyAccount();
         signUpPage.clickRegisterOption();
         Assert.assertEquals(driver.getTitle(), "Register Account", "This is not the right page");
-        signUpPage.sendKeysFirstName(list.get(0));
-        signUpPage.sendKeysLastName(list.get(1));
-        signUpPage.sendKeysEmail(list.get(2));
-        signUpPage.sendKeysPhone(list.get(3));
-        signUpPage.sendKeysPassword(list.get(4));
-        signUpPage.sendKeysPasswordConfirm(list.get(5));
+        signUpPage.fillForm(list.get(0),list.get(1),list.get(2),list.get(3),list.get(4),list.get(5));
         signUpPage.clickPolicyCheckBox();
     }
 

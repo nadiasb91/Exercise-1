@@ -69,26 +69,27 @@ public class SignUpPage {
     }
 
 
-    public void sendKeysFirstName( String firstname){
+    public void sendKeysFirstName(String firstname) {
         firstNameInput.sendKeys(firstname);
     }
 
-    public void sendKeysLastName(String lastname){
+    public void sendKeysLastName(String lastname) {
         lastNameInput.sendKeys(lastname);
     }
 
-    public void sendKeysEmail(String email){
+    public void sendKeysEmail(String email) {
         emailInput.sendKeys(email);
     }
 
-    public void sendKeysPhone(String phone){
+    public void sendKeysPhone(String phone) {
         phoneInput.sendKeys(phone);
     }
-    public void sendKeysPassword(String password){
+
+    public void sendKeysPassword(String password) {
         passwordInput.sendKeys(password);
     }
 
-    public void sendKeysPasswordConfirm(String passwordConfirm){
+    public void sendKeysPasswordConfirm(String passwordConfirm) {
         confirmPasswordInput.sendKeys(passwordConfirm);
     }
 
@@ -149,7 +150,6 @@ public class SignUpPage {
     }
 
 
-
     public void clearFirstNameInput() {
         firstNameInput.clear();
     }
@@ -166,10 +166,19 @@ public class SignUpPage {
         phoneInput.clear();
     }
 
-    public void setTypeForEmail(){
-        String script="document.getElementById(\"input-email\").setAttribute('type','text');";
-       // var JSExecutor = ;
-        ((JavascriptExecutor)driver).executeScript(script,emailInput);
+    public void fillForm(String name, String lastname, String email, String phone, String password, String passwordConfirm) {
+        firstNameInput.sendKeys(name);
+        lastNameInput.sendKeys(lastname);
+        emailInput.sendKeys(email);
+        phoneInput.sendKeys(phone);
+        passwordInput.sendKeys(password);
+        confirmPasswordInput.sendKeys(passwordConfirm);
+    }
+
+    public void setTypeForEmail() {
+        String script = "document.getElementById(\"input-email\").setAttribute('type','text');";
+        // var JSExecutor = ;
+        ((JavascriptExecutor) driver).executeScript(script, emailInput);
     }
 
     public void waitUntilVisibilityOfElement(WebElement element) {

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Factory;
 
 public class MyAccountPage {
 
@@ -59,6 +61,26 @@ public class MyAccountPage {
     WebElement radioButtonYes;
     @FindBy(xpath = "//label[2]/input[@name=\"newsletter\"]")
     WebElement radioButtonNo;
+    @FindBy(id = "input-company")
+    WebElement companyInput;
+    @FindBy(id = "input-address-1")
+    WebElement address1Input;
+    @FindBy(id = "input-city")
+    WebElement cityInput;
+    @FindBy(id = "input-postcode")
+    WebElement postCodeInput;
+    @FindBy(id = "input-country")
+    WebElement countryDropdown;
+    @FindBy(id = "input-zone")
+    WebElement regionDropdown;
+    @FindBy(xpath = "//*[@id=\"content\"]/form/fieldset/div[4]/div/div")
+    WebElement errorMessageAddress1;
+    @FindBy(xpath = "//*[@id=\"content\"]/form/fieldset/div[6]/div/div")
+    WebElement errorMessageCity;
+    @FindBy(xpath = "/html/body/div[2]/div/div/form/fieldset/div[7]/div/div")
+    WebElement errorMessagePostCode;
+    @FindBy(xpath = "//*[@id=\"content\"]/form/fieldset/div[9]/div/div")
+    WebElement errorMessageRegion;
 
     public String getStoreLinkText() {
         return yourStoreLink.getText();
@@ -76,68 +98,111 @@ public class MyAccountPage {
         continueButton.click();
     }
 
-    public void clickBackButton(){
+    public void clickBackButton() {
         backButton.click();
     }
 
-    public String getErrorMessageEditFirstName(){
+    public String getErrorMessageEditFirstName() {
         return errorMessageEditFirstName.getText();
     }
 
-    public String getErrorMessageEditLastName(){
+    public String getErrorMessageEditLastName() {
         return errorMessageEditLastName.getText();
     }
-    public String getErrorMessageEditEmail(){
+
+    public String getErrorMessageEditEmail() {
         return errorMessageEditEmail.getText();
     }
-    public String getErrorMessageEditPhone(){
+
+    public String getErrorMessageEditPhone() {
         return errorMessageEditPhone.getText();
     }
 
-    public void clickChangePasswordLink(){
+    public void clickChangePasswordLink() {
         changePasswordLink.click();
     }
 
-    public String getErrorMessageEditPassword(){
+    public String getErrorMessageEditPassword() {
         return errorMessageEditPassword.getText();
     }
 
-    public String getErrorMessageEditPasswordConfirm(){
+    public String getErrorMessageEditPasswordConfirm() {
         return errorMessageEditPasswordConfirm.getText();
     }
 
-    public void clickModifyAddressBookLink(){
+    public void clickModifyAddressBookLink() {
         modifyAddressBookLink.click();
     }
 
-    public String getMessageAddressBook(){
+    public String getMessageAddressBook() {
         return messageAddressBook.getText();
     }
 
-    public void clickNewAddressButton(){
+    public void clickNewAddressButton() {
         newAddressButton.click();
     }
-    public String getHeaderTextFromNewAddressBook(){
-       return headerNewAddress.getText();
+
+    public String getHeaderTextFromNewAddressBook() {
+        return headerNewAddress.getText();
     }
 
-    public void clickModifyWishListLink(){
+
+    public void clickModifyWishListLink() {
         modifyWishListLink.click();
     }
-    public void clickContinueButtonWishList(){
+
+    public void clickContinueButtonWishList() {
         continueButtonWishList.click();
     }
-    public void clickViewOrderHistoryLink(){
+
+    public void clickViewOrderHistoryLink() {
         viewOrderHistoryLink.click();
     }
-    public void clickOnSubscribeOrUnsubscribeLink(){
+
+    public void clickOnSubscribeOrUnsubscribeLink() {
         subscribeOrUnsubscribeLink.click();
     }
-    public void clickRadioButtonYes(){
+
+    public void clickRadioButtonYes() {
         radioButtonYes.click();
     }
 
-    public void clickRadioButtonNo(){
+    public void clickRadioButtonNo() {
         radioButtonNo.click();
+    }
+
+
+    public void selectCountry(String country) {
+        Select select = new Select(countryDropdown);
+        select.selectByVisibleText(country);
+    }
+
+    public void selectRegion(String region) {
+        Select select = new Select(regionDropdown);
+        select.selectByVisibleText(region);
+    }
+
+    public void fillFormAddress(String company, String address, String city, String postCode) {
+        companyInput.sendKeys(company);
+        address1Input.sendKeys(address);
+        cityInput.sendKeys(city);
+        postCodeInput.sendKeys(postCode);
+
+    }
+
+    public String getErrorMessageAddress1() {
+        return errorMessageAddress1.getText();
+    }
+
+    public String getErrorMessageCity() {
+        return errorMessageCity.getText();
+    }
+
+    public String getErrorMessagePostCode() {
+        return errorMessagePostCode.getText();
+    }
+
+    public String getErrorMessageRegion() {
+        return errorMessageRegion.getText();
     }
 }

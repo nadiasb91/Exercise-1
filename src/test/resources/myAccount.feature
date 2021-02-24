@@ -128,3 +128,4 @@ Feature: Home Page Links
     And user click on subscribe or unsubscribe to newsletter
     When user click on the back button
     Then is display my account page
+
